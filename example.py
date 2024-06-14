@@ -1,5 +1,6 @@
 import ydb
 import matplotlib.pyplot as plt
+import numpy as np
 
 print(f"Session name: {ydb.SESSION_NAME}")
 
@@ -10,10 +11,18 @@ print(result)
 
 plt.figure()
 plt.plot([1, 2, 3, 4], [1, 4, 9, 16])
-plt.title("lolala")
+plt.title("lalala")
 plt.xlabel("X-axis")
 plt.ylabel("Y-axis")
-
-# Save the plot to a BytesIO object
 result = ydb.add_figure(plt.gcf())
+plt.close()
+print(result)
+
+plt.figure()
+plt.plot(np.random.normal(size=10))
+plt.title("RNG")
+plt.xlabel("X-axis")
+plt.ylabel("Y-axis")
+result = ydb.add_figure(plt.gcf())
+plt.close()
 print(result)
