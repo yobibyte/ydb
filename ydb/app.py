@@ -7,7 +7,6 @@ ROOT_DIR = os.path.join(os.getcwd(), YDB_DIR)
 app = Flask(__name__)
 
 
-
 @app.route("/<path:folder>/<path:filename>")
 def serve_file(folder, filename):
     return send_from_directory(os.path.join(ROOT_DIR, folder), filename)
