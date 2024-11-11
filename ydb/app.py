@@ -1,7 +1,8 @@
 from flask import Flask, send_from_directory
+from pathlib import Path
 import os
 
-YDB_DIR = os.environ.get("YDB_DIR", ".ydb")
+YDB_DIR = os.environ.get("YDB_DIR", os.path.join(str(Path.home()), ".ydb"))
 ROOT_DIR = os.path.join(os.getcwd(), YDB_DIR)
 
 app = Flask(__name__)
