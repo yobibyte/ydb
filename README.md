@@ -10,6 +10,30 @@ You can also add text to the page by `ydb.add_text(your_text)`. This is probably
 
 Right now for this to work, you need to start a flask app locally: `flask --debug run`.
 
-## TODOs
-- Show items in the inverse chronological order.
-- Add config to support any urls.
+Set `YDB_DIR` env to be used as a storage directory. `.ydb` will be used otherwise.
+
+### Usage
+
+Imagine you got a breakpoing with your usual pdb.
+You can do this:
+
+```python
+from ydb import ydb
+from matplotlib import pyplot as plt
+
+ydb.add_text("Hey you!")
+
+plt.plot([1,2,3])
+ydb.add_figure(plt.gcf())
+
+# you'll get smth like
+# 'Picture added to /home/yobibyte/.ydb/functional-garnet-flamingo-of-essence/index.html'
+```
+
+Run this command to serve files with Flask:
+
+```python
+    python -m ydb.app
+```
+
+Now nawigate to the functional-garnet-flamingo-of-essence/index.html to get your debugging html page.

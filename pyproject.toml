@@ -1,0 +1,10 @@
+[project]
+name = "ydb"
+version = "0.1.0"
+description = "Yobibyte's debugger."
+readme = "README.md"
+dependencies = [
+  "flask",
+  "coolname",
+  "requests",
+]

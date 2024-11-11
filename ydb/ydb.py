@@ -3,7 +3,6 @@ from coolname import generate_slug
 import os
 from ydb.app import ROOT_DIR
 
-BASE_URL = "http://127.0.0.1:5000"
 SESSION_NAME = generate_slug()
 
 
