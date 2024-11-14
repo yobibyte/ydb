@@ -1,6 +1,7 @@
 from flask import Flask, send_from_directory
 from pathlib import Path
 import os
+import argparse
 
 YDB_DIR = os.environ.get("YDB_DIR", os.path.join(str(Path.home()), ".ydb"))
 ROOT_DIR = os.path.join(os.getcwd(), YDB_DIR)
@@ -38,4 +39,7 @@ def serve_file(folder, filename):
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--port", type=str, default="5000")
+    args = parser.parse_args()
+    app.run(debug=True, host="0.0.0.0", port=args.port)
